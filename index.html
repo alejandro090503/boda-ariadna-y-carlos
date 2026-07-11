@@ -26,21 +26,21 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <style>
 :root{
-  --bg:#f0fbfd;
-  --surface:#e2f7fc;
-  --paper:#fef5f9;
-  --accent:#7d9478;
-  --accent-soft:#a5b9a1;
-  --accent-deep:#3e5443;
+  --bg:#7A2E3B;
+  --surface:#8B3A4A;
+  --paper:#3A5F6B;
+  --accent:#C9A456;
+  --accent-soft:#E8D5A0;
+  --accent-deep:#F0D98C;
   --gold:#C9A456;
   --gold-soft:#E8D5A0;
-  --gold-deep:#8F7335;
-  --rose:#f7cbd9;
-  --rose-soft:#fce8f1;
-  --ink:#1a2420;
-  --ink-soft:#4a6055;
-  --hair:color-mix(in srgb, var(--accent-deep) 14%, transparent);
-  --hair-gold:color-mix(in srgb, var(--gold-deep) 22%, transparent);
+  --gold-deep:#D4AF5A;
+  --rose:#A84858;
+  --rose-soft:#944050;
+  --ink:#F8F0E0;
+  --ink-soft:#E0D4C0;
+  --hair:color-mix(in srgb, var(--gold) 18%, transparent);
+  --hair-gold:color-mix(in srgb, var(--gold) 28%, transparent);
   --display:'Playfair Display',Georgia,serif;
   --serif:'Cormorant Garamond',Georgia,serif;
   --script:'Pinyon Script',cursive;
@@ -48,7 +48,7 @@
   --sans:'Inter Tight',system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;background:#1a2e26}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;background:#4A1A24}
 body{
   font-family:var(--sans);
   font-size:16px;line-height:1.8;
@@ -64,8 +64,8 @@ body{
 .wrap{position:relative;z-index:2;overflow:clip}
 .container{max-width:1240px;margin:0 auto;padding:0 clamp(24px,4vw,56px);position:relative;z-index:1}
 
-h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.015em;line-height:1.12;color:var(--accent-deep)}
-h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.015em;line-height:1.12;color:var(--gold-soft)}
+h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--gold)}
 
 .script{font-family:var(--script);font-weight:400;font-size:1.5em;color:var(--gold);letter-spacing:0}
 .italiana{font-family:var(--italiana);font-weight:400;letter-spacing:.02em}
@@ -134,14 +134,14 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
 .particle{position:absolute;top:-40px;pointer-events:none;will-change:transform,opacity}
 .particle--pollen{
   width:6px;height:6px;border-radius:50%;
-  background:radial-gradient(circle,#fce8f1 0%,rgba(247,203,217,.5) 55%,transparent 100%);
-  box-shadow:0 0 8px rgba(247,203,217,.6),0 0 18px rgba(247,203,217,.3);
+  background:radial-gradient(circle,#F0D98C 0%,rgba(201,164,86,.5) 55%,transparent 100%);
+  box-shadow:0 0 8px rgba(201,164,86,.6),0 0 18px rgba(201,164,86,.3);
   opacity:.8;
 }
 .particle--spark{
   width:3px;height:3px;border-radius:50%;
-  background:#abe9f5;
-  box-shadow:0 0 6px #abe9f5,0 0 14px rgba(171,233,245,.6);
+  background:#E8D5A0;
+  box-shadow:0 0 6px #E8D5A0,0 0 14px rgba(232,213,160,.6);
   opacity:0;
 }
 .particle--star{width:12px;height:12px;color:var(--gold);opacity:.6}
@@ -170,12 +170,12 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
 .hero-bg-overlay{
   position:absolute;inset:0;z-index:-1;
   background:
-    radial-gradient(ellipse at center top, transparent 20%, rgba(20,40,30,.45) 70%),
+    radial-gradient(ellipse at center top, transparent 20%, rgba(74,26,36,.45) 70%),
     linear-gradient(180deg,
-      rgba(20,40,30,.55) 0%,
-      rgba(20,40,30,.12) 35%,
-      rgba(20,40,30,.12) 55%,
-      rgba(20,40,30,.75) 100%);
+      rgba(74,26,36,.55) 0%,
+      rgba(74,26,36,.12) 35%,
+      rgba(74,26,36,.12) 55%,
+      rgba(74,26,36,.75) 100%);
 }
 .hero-frame{
   position:absolute;inset:clamp(28px,4vw,56px);z-index:-1;
@@ -326,16 +326,16 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
 /* ============ FECHA HERO ============ */
 .date-hero{
   position:relative;padding:min(22vh,220px) 0;
-  background:#1a2e26;
+  background:#4A1A24;
   color:#F8F5EC;text-align:center;isolation:isolate;overflow:hidden;
 }
 .date-hero::after{
   content:"";position:absolute;inset:0;z-index:0;
   background:
     linear-gradient(to bottom,
-      rgba(26,46,38,.55) 0%,
-      rgba(26,46,38,.32) 50%,
-      rgba(26,46,38,.55) 100%),
+      rgba(74,26,36,.55) 0%,
+      rgba(74,26,36,.32) 50%,
+      rgba(74,26,36,.55) 100%),
     url('https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/ce5a4160-6f89-4c2f-ba19-1d5cbcb5c200/1782621629965-0.jpg') center/cover no-repeat;
   mask-image:linear-gradient(to bottom,
     transparent 0%,
@@ -719,6 +719,42 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
 .gift-btn:hover{color:var(--paper)}
 .gift-btn:hover::before{transform:translateY(0)}
 
+/* ============ VERSÍCULO ============ */
+.bible-verse{text-align:center;padding:min(14vh,120px) 0;position:relative}
+.bible-verse .container{max-width:680px}
+.bible-verse-icon{color:var(--gold);margin-bottom:24px;opacity:.7}
+.bible-verse-text{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.5vw,26px);line-height:1.8;color:var(--ink);font-weight:300;margin-bottom:20px}
+.bible-verse-ref{font-family:var(--italiana);font-size:14px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold-deep);padding-left:.4em}
+
+/* ============ HOSPEDAJE ============ */
+.hosp-carousel{position:relative;max-width:380px;margin:30px auto 0}
+.hosp-viewport{overflow:hidden}
+.hosp-track{display:flex;transition:transform .45s cubic-bezier(.4,0,.2,1)}
+.hosp-slide{flex:0 0 100%;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;text-align:center;padding:8px 30px}
+.hosp-photo{width:200px;height:200px;border-radius:50%;overflow:hidden;border:3px solid var(--hair-gold);box-shadow:0 12px 34px rgba(74,26,36,.3);margin-bottom:22px}
+.hosp-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.hosp-arrow{position:absolute;top:108px;transform:translateY(-50%);width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:rgba(74,26,36,.7);border:1px solid var(--hair-gold);border-radius:50%;cursor:pointer;color:var(--gold);z-index:2;padding:0;backdrop-filter:blur(3px)}
+.hosp-arrow svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2}
+.hosp-arrow.prev{left:-2px}
+.hosp-arrow.next{right:-2px}
+.hosp-dots{display:flex;justify-content:center;gap:8px;margin-top:22px}
+.hosp-dots button{width:8px;height:8px;border-radius:50%;border:none;background:var(--hair-gold);cursor:pointer;padding:0;transition:background .25s,transform .25s}
+.hosp-dots button.active{background:var(--gold);transform:scale(1.3)}
+.hosp-name{font-family:var(--display);font-weight:600;font-size:21px;color:var(--ink);margin-bottom:6px}
+.hosp-city{font-family:var(--sans);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);opacity:.8;margin-bottom:16px}
+.hosp-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn-hosp{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border:1.5px solid var(--gold);border-radius:50px;color:var(--gold);font-family:var(--serif);font-style:italic;font-size:14.5px;letter-spacing:.5px;text-decoration:none;background:transparent;transition:background .25s,color .25s}
+.btn-hosp:hover{background:var(--gold);color:var(--bg)}
+.btn-hosp svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:430px){
+  .hosp-carousel{max-width:340px}
+  .hosp-slide{padding:8px 22px}
+  .hosp-photo{width:172px;height:172px}
+  .hosp-arrow{top:94px}
+  .hosp-name{font-size:20px}
+  .btn-hosp{padding:10px 18px;font-size:14px}
+}
+
 /* ============ RSVP ============ */
 .rsvp{text-align:center}
 .rsvp-inner{max-width:720px;margin:0 auto}
@@ -751,7 +787,7 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
 
 /* ============ FOOTER ============ */
 footer{
-  background:linear-gradient(180deg, var(--accent-deep) 0%, #0f1e16 100%);
+  background:linear-gradient(180deg, #4A1A24 0%, #2A0E14 100%);
   color:#E6ECF5;padding:min(14vh,130px) 0 52px;text-align:center;
   position:relative;overflow:hidden;
 }
@@ -973,16 +1009,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   font-family:var(--sans);font-size:14px;font-weight:500;
   letter-spacing:.5em;text-transform:uppercase;
   color:#F8F5EC;padding:14px 28px 14px 28.5px;z-index:3;
-  background:rgba(26,46,38,.88);
+  background:rgba(74,26,36,.88);
   border:1px solid rgba(232,213,160,.55);
   border-radius:999px;
-  box-shadow:0 8px 28px rgba(26,46,38,.35),0 0 0 6px rgba(255,255,255,.08);
+  box-shadow:0 8px 28px rgba(74,26,36,.35),0 0 0 6px rgba(255,255,255,.08);
   backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
   animation:envHintPulse 1.8s ease-in-out infinite;
 }
 @keyframes envHintPulse{
-  0%,100%{box-shadow:0 8px 28px rgba(26,46,38,.35),0 0 0 6px rgba(255,255,255,.08)}
-  50%{box-shadow:0 12px 36px rgba(26,46,38,.45),0 0 0 10px rgba(255,255,255,.04)}
+  0%,100%{box-shadow:0 8px 28px rgba(74,26,36,.35),0 0 0 6px rgba(255,255,255,.08)}
+  50%{box-shadow:0 12px 36px rgba(74,26,36,.45),0 0 0 10px rgba(255,255,255,.04)}
 }
 #env-flash{
   position:fixed;inset:0;z-index:9999;
@@ -1074,7 +1110,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   </section>
 
   <!-- DIVIDER -->
-  <div class="seam" style="--from:transparent;--to:var(--surface)" aria-hidden="true"></div>
+  <div class="seam" style="--from:transparent;--to:var(--bg)" aria-hidden="true"></div>
 
   <!-- VERSO -->
   <section class="section-surface">
@@ -1100,7 +1136,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   </section>
 
   <!-- DIVIDER -->
-  <div class="seam" style="--from:var(--surface);--to:#1a2e26" aria-hidden="true"></div>
+  <div class="seam" style="--from:var(--surface);--to:#4A1A24" aria-hidden="true"></div>
 
   <!-- FECHA HERO -->
   <section class="date-hero">
@@ -1122,7 +1158,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   </section>
 
   <!-- DIVIDER -->
-  <div class="seam" style="--from:#1a2e26;--to:var(--surface)" aria-hidden="true"></div>
+  <div class="seam" style="--from:#4A1A24;--to:var(--surface)" aria-hidden="true"></div>
 
   <!-- HISTORIA -->
   <section class="section-surface">
@@ -1422,10 +1458,93 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
               <path d="M12 7h4.5a2.5 2.5 0 100-5C13 2 12 7 12 7z"/>
             </svg>
           </div>
-          <div class="gift-name">Mesa de regalos</div>
-          <div class="gift-desc"><em>Por confirmar</em><br>Próximamente compartiremos los detalles</div>
-          <span class="gift-btn" style="opacity:.5;cursor:default">Próximamente</span>
+          <div class="gift-name">Liverpool</div>
+          <div class="gift-desc">Nuestra lista de regalos en Liverpool</div>
+          <a class="gift-btn" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/52029127" target="_blank" rel="noopener">Ver lista</a>
         </article>
+        <article class="gift-card">
+          <div class="gift-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
+              <path d="M20 12v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6"/>
+              <path d="M2 7h20v5H2z"/>
+              <path d="M12 22V7"/>
+              <path d="M12 7H7.5a2.5 2.5 0 110-5C11 2 12 7 12 7z"/>
+              <path d="M12 7h4.5a2.5 2.5 0 100-5C13 2 12 7 12 7z"/>
+            </svg>
+          </div>
+          <div class="gift-name">Sears</div>
+          <div class="gift-desc">Nuestra lista de regalos en Sears</div>
+          <a class="gift-btn" href="https://www.sears.com.mx/Mesa-de-Regalos/265577/nuestra-boda-ariadna-juan-carlos" target="_blank" rel="noopener">Ver lista</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="seam" style="--from:var(--surface);--to:var(--paper)" aria-hidden="true"></div>
+
+  <!-- VERSÍCULO -->
+  <section class="section-paper bible-verse" id="bible-verse">
+    <div class="container">
+      <svg class="bible-verse-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+        <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+        <path d="M12 6v7"/>
+        <path d="M8.5 9.5h7"/>
+      </svg>
+      <div class="hair-word"><span>palabra de vida</span></div>
+      <p class="bible-verse-text">&ldquo;El amor nunca se da por vencido, jamás pierde la fe, siempre tiene esperanza y se mantiene firme en toda circunstancia.&rdquo;</p>
+      <div class="bible-verse-ref">1 Corintios 13:7</div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="seam" style="--from:var(--paper);--to:var(--surface)" aria-hidden="true"></div>
+
+  <!-- HOSPEDAJE -->
+  <section class="section-surface" id="lodging">
+    <div class="container" style="text-align:center">
+      <div class="eyebrow">Para tu estancia</div>
+      <h2>Sugerencia <em>de</em> Hospedaje</h2>
+      <div class="hair-word"><span>alojamiento</span></div>
+      <p style="font-family:var(--serif);font-style:italic;font-size:15px;text-align:center;color:var(--ink);opacity:.78;max-width:320px;margin:0 auto 4px">Si vienes de fuera, te recomendamos estas opciones cercanas.</p>
+
+      <div class="hosp-carousel">
+        <button class="hosp-arrow prev" aria-label="Anterior"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <button class="hosp-arrow next" aria-label="Siguiente"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+        <div class="hosp-viewport">
+          <div class="hosp-track" id="hospTrack">
+
+            <div class="hosp-slide">
+              <div class="hosp-photo"><img src="https://scontent.fmex37-1.fna.fbcdn.net/v/t39.30808-6/469969589_122126870690580530_1098476791543527105_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=placeholder&_nc_zt=23&_nc_ht=scontent.fmex37-1.fna&oh=00_placeholder&oe=placeholder" alt="Balneario El Carrizal" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22><rect fill=%22%233A5F6B%22 width=%22200%22 height=%22200%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23C9A456%22 font-size=%2232%22>🏊</text></svg>'"></div>
+              <div class="hosp-name">Balneario El Carrizal</div>
+              <div class="hosp-city">Hospedaje y balneario</div>
+              <div class="hosp-btns">
+                <a class="btn-hosp" href="https://www.instagram.com/balnearioelcarrizal" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+                  Instagram
+                </a>
+              </div>
+            </div>
+
+            <div class="hosp-slide">
+              <div class="hosp-photo"><img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22><rect fill=%22%233A5F6B%22 width=%22200%22 height=%22200%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23C9A456%22 font-size=%2232%22>🏨</text></svg>" alt="Gilda Tamazulapam" loading="lazy"></div>
+              <div class="hosp-name">Gilda Tamazulapam</div>
+              <div class="hosp-city">Hospedaje</div>
+              <div class="hosp-btns">
+                <a class="btn-hosp" href="https://www.facebook.com/gildatamazulapam" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                  Facebook
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="hosp-dots" id="hospDots">
+          <button class="active" aria-label="Hospedaje 1"></button>
+          <button aria-label="Hospedaje 2"></button>
+        </div>
       </div>
     </div>
   </section>
@@ -1748,6 +1867,39 @@ gsap.fromTo('.kids-policy .eyebrow, .kids-policy h2, .kids-text',{opacity:0,y:18
 
 gsap.fromTo('.gifts-head > *',{opacity:0,y:18},{opacity:1,y:0,duration:1,stagger:.1,scrollTrigger:{trigger:'.gifts-head',start:'top 80%'}});
 gsap.fromTo('.gift-card',{opacity:0,y:60,rotateY:-15,scale:.95},{opacity:1,y:0,rotateY:0,scale:1,duration:1.2,stagger:.15,ease:'power4.out',scrollTrigger:{trigger:'.gifts-grid',start:'top 82%'}});
+
+/* Versículo */
+gsap.fromTo('#bible-verse .bible-verse-icon, #bible-verse .hair-word, #bible-verse .bible-verse-text, #bible-verse .bible-verse-ref',{opacity:0,y:18},{opacity:1,y:0,duration:1,stagger:.12,scrollTrigger:{trigger:'#bible-verse',start:'top 78%'}});
+
+/* Hospedaje carousel */
+gsap.fromTo('#lodging .hosp-carousel',{opacity:0,y:34,scale:.96},{opacity:1,y:0,scale:1,duration:.7,ease:'power4.out',scrollTrigger:{trigger:'#lodging',start:'top 80%',once:true}});
+gsap.fromTo('#lodging .eyebrow, #lodging h2, #lodging .hair-word',{opacity:0,y:18},{opacity:1,y:0,duration:1,stagger:.12,scrollTrigger:{trigger:'#lodging',start:'top 78%'}});
+
+(function(){
+  var track=document.getElementById('hospTrack');
+  if(!track)return;
+  var slides=track.children.length;
+  var dots=document.querySelectorAll('#hospDots button');
+  var idx=0;
+  function go(i){
+    idx=(i+slides)%slides;
+    track.style.transform='translateX('+(-idx*100)+'%)';
+    dots.forEach(function(d,k){d.classList.toggle('active',k===idx);});
+  }
+  var prev=document.querySelector('.hosp-arrow.prev');
+  var next=document.querySelector('.hosp-arrow.next');
+  if(prev)prev.addEventListener('click',function(){go(idx-1);});
+  if(next)next.addEventListener('click',function(){go(idx+1);});
+  dots.forEach(function(d,k){d.addEventListener('click',function(){go(k);});});
+  var sx=0,sy=0;
+  track.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+  track.addEventListener('touchend',function(e){
+    var dx=e.changedTouches[0].clientX-sx;
+    var dy=e.changedTouches[0].clientY-sy;
+    if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)){go(dx<0?idx+1:idx-1);}
+  },{passive:true});
+  go(0);
+})();
 
 const rsvpBtn=document.querySelector('.rsvp-btn');
 if(rsvpBtn&&!('ontouchstart' in window)){
