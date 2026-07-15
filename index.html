@@ -680,18 +680,20 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--gold)}
 .dc-figures{display:flex;align-items:center;justify-content:center;gap:30px;margin:6px auto 28px;max-width:440px}
 .dc-fig-card{
   flex:1;padding:28px 18px 22px;
-  background:linear-gradient(145deg,rgba(201,164,86,.08),rgba(201,164,86,.03));
-  border:1px solid rgba(201,164,86,.35);
+  background:linear-gradient(145deg,#C9A456,#A8893A);
+  border:1px solid rgba(255,255,255,.18);
   border-radius:16px;
-  box-shadow:0 8px 28px rgba(74,26,36,.12),inset 0 1px 0 rgba(201,164,86,.18);
+  box-shadow:0 8px 28px rgba(74,26,36,.22),inset 0 1px 0 rgba(255,255,255,.2);
   display:flex;flex-direction:column;align-items:center;gap:14px;
   position:relative;overflow:hidden;
 }
 .dc-fig-card::before{
   content:"";position:absolute;inset:0;
-  background:radial-gradient(ellipse at 30% 20%,rgba(201,164,86,.12),transparent 60%);
+  background:radial-gradient(ellipse at 30% 20%,rgba(255,255,255,.15),transparent 60%);
   pointer-events:none;
 }
+.dc-fig-card .dc-fig-label{color:#1a1510}
+.dc-fig-card .dc-fig-sub{color:rgba(26,21,16,.7)}
 .dc-fig{display:flex;flex-direction:column;align-items:center;gap:14px}
 .dc-fig img{height:200px;width:auto;display:block;filter:drop-shadow(0 6px 14px rgba(74,26,36,.22))}
 .dc-fig-label{font-family:var(--serif);font-size:16px;font-style:italic;letter-spacing:1px;color:var(--gold)}
