@@ -976,46 +976,32 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 #env-image{opacity:1;z-index:1}
 #env-video{opacity:0;z-index:2;pointer-events:none}
 #env-hint{
-  position:absolute;bottom:min(14vh,120px);left:50%;transform:translateX(-50%);
-  z-index:3;display:flex;flex-direction:column;align-items:center;gap:14px;
+  position:absolute;bottom:min(12vh,110px);left:50%;transform:translateX(-50%);
+  z-index:3;display:flex;flex-direction:column;align-items:center;
   text-align:center;
 }
-.env-hint-line{
-  display:block;width:64px;height:1.5px;
-  background:linear-gradient(90deg,transparent,#C9A456,transparent);
-}
-.env-hint-label{
-  font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;
-  letter-spacing:.35em;text-transform:uppercase;
-  color:rgba(248,240,224,.92);
-}
-.env-hint-main{
-  font-family:'Pinyon Script',cursive;font-size:36px;font-weight:400;
-  color:#C9A456;letter-spacing:.04em;
-  text-shadow:0 0 24px rgba(201,164,86,.5),0 0 48px rgba(201,164,86,.2);
-}
 .env-hint-pill{
-  display:inline-flex;align-items:center;gap:10px;
-  padding:14px 38px;margin-top:4px;
-  background:rgba(201,164,86,.22);
-  border:1px solid rgba(201,164,86,.6);
+  display:inline-flex;align-items:center;gap:12px;
+  padding:20px 48px;
+  background:#7A2E3B;
+  border:2px solid #C9A456;
   border-radius:999px;
-  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-  animation:envHintPulse 2.2s ease-in-out infinite;
+  box-shadow:0 10px 40px rgba(74,26,36,.5),0 2px 12px rgba(0,0,0,.3);
+  animation:envHintPulse 2s ease-in-out infinite;
 }
 .env-hint-pill span{
-  font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;
-  letter-spacing:.35em;text-transform:uppercase;
-  color:#F0E2BC;
+  font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;
+  letter-spacing:.32em;text-transform:uppercase;
+  color:#F0E2BC;white-space:nowrap;
 }
 .env-hint-pill svg{
-  width:18px;height:18px;fill:none;stroke:#E8D5A0;stroke-width:2;
+  width:22px;height:22px;fill:none;stroke:#E8D5A0;stroke-width:2.4;
   stroke-linecap:round;stroke-linejoin:round;
   animation:envArrowBounce 1.6s ease-in-out infinite;
 }
 @keyframes envHintPulse{
-  0%,100%{box-shadow:0 4px 28px rgba(201,164,86,.22),0 0 0 0 rgba(201,164,86,.12)}
-  50%{box-shadow:0 8px 40px rgba(201,164,86,.35),0 0 0 8px rgba(201,164,86,.1)}
+  0%,100%{box-shadow:0 10px 40px rgba(74,26,36,.5),0 0 0 0 rgba(201,164,86,.5)}
+  50%{box-shadow:0 12px 48px rgba(74,26,36,.6),0 0 0 12px rgba(201,164,86,0)}
 }
 @keyframes envArrowBounce{
   0%,100%{transform:translateY(0)}
@@ -1054,14 +1040,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     <source src="envelope.mp4" type="video/mp4">
   </video>
   <div id="env-hint">
-    <span class="env-hint-line"></span>
-    <span class="env-hint-label">Has sido invitado</span>
-    <span class="env-hint-main">Juan Carlos &amp; Ariadna</span>
     <div class="env-hint-pill">
       <span>Toca para abrir</span>
       <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
     </div>
-    <span class="env-hint-line"></span>
   </div>
 </div>
 <div id="env-flash" aria-hidden="true"></div>
