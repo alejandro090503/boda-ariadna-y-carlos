@@ -478,6 +478,15 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--gold)}
 .loc-type{font-family:var(--sans);font-size:10px;letter-spacing:.55em;text-transform:uppercase;color:var(--gold-deep);padding-left:.55em;margin-bottom:28px;font-weight:500}
 .loc-name{font-family:var(--display);font-size:26px;color:var(--accent-deep);margin-bottom:20px;line-height:1.25;font-weight:400}
 .loc-time{font-family:var(--display);font-style:italic;font-size:22px;color:var(--gold);margin-bottom:24px;font-variant-numeric:tabular-nums}
+.loc-times{display:flex;flex-direction:column;gap:12px;margin:0 auto 26px;max-width:280px}
+.loc-time-row{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:11px 18px;
+  background:rgba(201,164,86,.08);
+  border:1px solid var(--hair-gold);border-radius:8px;
+}
+.loc-time-ev{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-deep)}
+.loc-time-hr{font-family:var(--display);font-style:italic;font-size:18px;color:var(--accent-deep);font-variant-numeric:tabular-nums;white-space:nowrap}
 .loc-addr{font-family:var(--serif);font-size:15px;color:var(--ink-soft);line-height:1.7;margin-bottom:32px;font-weight:400}
 .loc-btn{
   display:inline-block;padding:15px 34px;
@@ -620,8 +629,8 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--gold)}
 .gbx-logo{height:44px;display:flex;align-items:center;justify-content:center;margin:4px auto 12px;padding:0 12px;border-radius:12px}
 .gbx-logo.liverpool{background:#e10098;padding:9px 16px}
 .gbx-logo.liverpool img{height:20px}
-.gbx-logo.sears{background:#003DA5;padding:9px 16px}
-.gbx-logo.sears img{height:28px;filter:brightness(0) invert(1)}
+.gbx-logo.sears{background:#fff;padding:11px 18px;overflow:hidden}
+.gbx-logo.sears img{height:22px}
 .gbx-name{font-family:var(--display);font-size:20px;font-weight:600;color:var(--accent-deep)}
 .gbx-desc{font-family:var(--serif);font-size:12px;font-weight:400;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-top:2px}
 .gbx-cta{display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:11px 26px;
@@ -634,10 +643,10 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--gold)}
 .dc-figures{display:flex;align-items:center;justify-content:center;gap:30px;margin:6px auto 28px;max-width:440px}
 .dc-fig-card{
   flex:1;padding:28px 18px 22px;
-  background:linear-gradient(145deg,#C9A456,#A8893A);
-  border:1px solid rgba(255,255,255,.18);
+  background:linear-gradient(150deg,#F2E5C4 0%,#E4D2AC 55%,#D8C7A0 100%);
+  border:1px solid rgba(255,255,255,.5);
   border-radius:16px;
-  box-shadow:0 8px 28px rgba(74,26,36,.22),inset 0 1px 0 rgba(255,255,255,.2);
+  box-shadow:0 8px 28px rgba(74,26,36,.18),inset 0 1px 0 rgba(255,255,255,.5);
   display:flex;flex-direction:column;align-items:center;gap:14px;
   position:relative;overflow:hidden;
 }
@@ -1094,7 +1103,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
         <span class="hero-name-l" data-split="Ariadna"></span>
       </h1>
     </div>
-    <div class="hero-scroll">Descubre</div>
   </section>
 
   <!-- DIVIDER -->
@@ -1193,7 +1201,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
         <div class="family-block">
           <div class="family-block-title">Padres de la novia</div>
           <div class="family-names">
-            Victor Pérez Reyes <span style="font-size:1.4em;vertical-align:middle">✝</span><br>
+            Victor Pérez Reyes <svg width="12" height="18" viewBox="0 0 12 18" fill="none" style="display:inline-block;vertical-align:-2px;margin-left:4px" aria-hidden="true"><path d="M6 1 V17 M1.5 5.5 H10.5" stroke="var(--gold)" stroke-width="1.4" stroke-linecap="round"/></svg><br>
             <em>&amp;</em><br>
             Patricia Baeza Quiroz
           </div>
@@ -1233,7 +1241,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
           </svg>
           <div class="loc-type" style="visibility:hidden;height:0;margin:0;padding:0">.</div>
           <div class="loc-name">Ceremonia &amp; Recepción</div>
-          <div class="loc-time">2:30 pm</div>
+          <div class="loc-times">
+            <div class="loc-time-row">
+              <span class="loc-time-ev">Recepción</span>
+              <span class="loc-time-hr">2:30 – 3:00 pm</span>
+            </div>
+            <div class="loc-time-row">
+              <span class="loc-time-ev">Ceremonia</span>
+              <span class="loc-time-hr">3:00 pm</span>
+            </div>
+          </div>
           <div class="loc-addr">Tamazulapan del Progreso, Oaxaca</div>
           <a class="loc-btn" href="https://maps.app.goo.gl/JcN7u7dnSzz3SCWLA?g_st=aw" target="_blank" rel="noopener">Cómo llegar</a>
         </article>
@@ -1402,7 +1419,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
           <p class="gbx-tap">Toca el regalo</p>
           <div class="gbx-reveal">
             <div class="gbx-logo liverpool"><img src="liverpool-logo.svg" alt="Liverpool"></div>
-            <div class="gbx-name">Liverpool</div>
             <div class="gbx-desc">Evento No. 52029127</div>
             <a class="gbx-cta" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/52029127" target="_blank" rel="noopener">Ver mesa →</a>
           </div>
@@ -1427,7 +1443,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
           <p class="gbx-tap">Toca el regalo</p>
           <div class="gbx-reveal">
             <div class="gbx-logo sears"><img src="sears-logo.png" alt="Sears"></div>
-            <div class="gbx-name">Sears</div>
             <div class="gbx-desc">Mesa de regalos en línea</div>
             <a class="gbx-cta" href="https://www.sears.com.mx/Mesa-de-Regalos/265577/nuestra-boda-ariadna-juan-carlos" target="_blank" rel="noopener">Ver mesa →</a>
           </div>
