@@ -1624,6 +1624,27 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   <img id="lightbox-img" alt="">
 </div>
 
+<!-- MÚSICA -->
+<audio id="bg-music" src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/audio/boda-ariadna-y-carlos/cancion.mp3" preload="auto" loop></audio>
+<button class="vinyl-btn" id="music-btn" type="button" aria-label="Reproducir música de la invitación">
+  <div class="vinyl-tonearm">
+    <div class="vinyl-tonearm-pivot"></div>
+    <div class="vinyl-tonearm-line"></div>
+    <div class="vinyl-tonearm-head"></div>
+  </div>
+  <div class="vinyl-spin">
+    <div class="vinyl-disc">
+      <div class="vinyl-sheen"></div>
+      <div class="vinyl-label-text">JC&A<small>2026</small></div>
+      <div class="vinyl-hole"></div>
+    </div>
+  </div>
+  <div class="vinyl-icons">
+    <svg class="vinyl-icon-play" viewBox="0 0 24 24" fill="#1a1510"><path d="M8 5v14l11-7z"/></svg>
+    <svg class="vinyl-icon-pause" viewBox="0 0 24 24" fill="#1a1510"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+  </div>
+</button>
+
 <script>
 window.scrollTo(0,0);
 history.scrollRestoration='manual';
@@ -1690,6 +1711,7 @@ function launchInvitation(){
   gsap.set(envImage,{opacity:1});
   function openEnvelope(){
     if(opened) return; opened=true;
+    if(window._primeMusic) window._primeMusic();   // arranca música bajo el gesto
     gsap.to(envHint,{opacity:0,duration:.35,ease:'power2.out'});
     const p=envVideo.play();
     if(p&&typeof p.catch==='function') p.catch(()=>{});
@@ -1697,6 +1719,7 @@ function launchInvitation(){
     gsap.to(envVideo,{opacity:1,duration:.7,ease:'power2.inOut'});
     envVideo.addEventListener('timeupdate',onTimeUpdate);
     envVideo.addEventListener('ended',triggerFlash);
+    setTimeout(triggerFlash,8000);                 // respaldo si el video no dispara sus eventos
   }
   function onTimeUpdate(){
     if(flashed) return;
@@ -2162,37 +2185,41 @@ window.addEventListener('resize',()=>ScrollTrigger.refresh());
   var aud = document.getElementById('bg-music');
   var vinylBtn = document.getElementById('music-btn');
   if(!aud || !vinylBtn) return;
-  var playing = false;
+  var userPaused = false;
+
   function showMusicBtn(){ vinylBtn.classList.add('is-ready'); }
-  aud.addEventListener('play', function(){ vinylBtn.classList.add('is-playing'); playing=true; });
-  aud.addEventListener('pause', function(){ vinylBtn.classList.remove('is-playing'); playing=false; });
+  aud.addEventListener('play',  function(){ vinylBtn.classList.add('is-playing'); });
+  aud.addEventListener('pause', function(){ vinylBtn.classList.remove('is-playing'); });
+
+  function tryPlay(){
+    var p = aud.play();
+    if(p && typeof p.then==='function') p.catch(function(){});
+  }
+
+  // Botón vinilo: toggle manual (gesto directo → siempre permitido).
+  // Usa aud.paused (síncrono) para evitar desincronización.
   vinylBtn.addEventListener('click', function(){
-    if(playing){ aud.pause(); } else { aud.play().catch(function(){}); }
+    if(aud.paused){ userPaused=false; tryPlay(); }
+    else { userPaused=true; aud.pause(); }
   });
+
+  // Reproduce bajo el gesto del sobre (sin mostrar el botón todavía)
+  window._primeMusic = function(){ if(aud.paused && !userPaused) tryPlay(); };
+  // Muestra el botón y asegura reproducción (al entrar la invitación)
+  window._autoPlayMusic = function(){ showMusicBtn(); if(aud.paused && !userPaused) tryPlay(); };
   window._showMusicBtn = showMusicBtn;
-  window._autoPlayMusic = function(){ aud.play().catch(function(){}); showMusicBtn(); };
+
+  // Respaldo: si el autoplay fue bloqueado, el primer gesto en cualquier
+  // parte de la página inicia la música (una vez visible el botón).
+  function globalUnlock(){
+    if(!aud.paused || userPaused) return;
+    if(vinylBtn.classList.contains('is-ready')) tryPlay();
+  }
+  ['pointerdown','touchend','click','keydown'].forEach(function(ev){
+    document.addEventListener(ev, globalUnlock, {passive:true});
+  });
 })();
 </script>
-
-<audio id="bg-music" src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/audio/boda-ariadna-y-carlos/cancion.mp3" preload="auto" loop></audio>
-<button class="vinyl-btn" id="music-btn" type="button" aria-label="Reproducir música de la invitación">
-  <div class="vinyl-tonearm">
-    <div class="vinyl-tonearm-pivot"></div>
-    <div class="vinyl-tonearm-line"></div>
-    <div class="vinyl-tonearm-head"></div>
-  </div>
-  <div class="vinyl-spin">
-    <div class="vinyl-disc">
-      <div class="vinyl-sheen"></div>
-      <div class="vinyl-label-text">JC&A<small>2026</small></div>
-      <div class="vinyl-hole"></div>
-    </div>
-  </div>
-  <div class="vinyl-icons">
-    <svg class="vinyl-icon-play" viewBox="0 0 24 24" fill="#1a1510"><path d="M8 5v14l11-7z"/></svg>
-    <svg class="vinyl-icon-pause" viewBox="0 0 24 24" fill="#1a1510"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
-  </div>
-</button>
 </body>
 </html>
 
