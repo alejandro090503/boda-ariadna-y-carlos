@@ -407,8 +407,7 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--gold)}
   font-family:var(--serif);font-size:clamp(18px,2vw,21px);font-weight:400;
   line-height:1.85;color:var(--ink);margin-bottom:40px;
 }
-.story-body p{margin-bottom:28px}
-.story-body p:first-child{text-align:left}
+.story-body p{margin-bottom:28px;text-align:center}
 .story-initials{
   font-family:var(--script);font-size:96px;
   color:var(--gold);margin-top:56px;line-height:1;
@@ -804,6 +803,72 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--gold)}
 }
 #rsvp-feedback{font-family:var(--serif);font-style:italic;font-size:17px;text-align:center;margin:14px auto 0;max-width:420px;display:none}
 
+/* ============ ÁLBUM COMPARTIDO ============ */
+.album-section{
+  position:relative;overflow:hidden;
+  padding:clamp(90px,14vh,150px) 24px;
+  background:linear-gradient(165deg,#33513D 0%,#2E4A38 45%,#213829 100%);
+  text-align:center;
+}
+.album-section::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 32%,rgba(169,199,154,.14),transparent 62%);
+}
+.album-section > .container{position:relative;z-index:1}
+.album-section .eyebrow{color:#D8E4C8}
+.album-title{
+  font-family:var(--script);font-weight:400;
+  font-size:clamp(52px,13vw,86px);line-height:.98;
+  color:#F4EFE2;margin:6px 0 4px;
+  text-shadow:0 4px 30px rgba(0,0,0,.28);
+}
+.album-desc{
+  font-family:var(--serif);font-style:italic;
+  font-size:clamp(16px,2vw,19px);line-height:1.7;
+  color:#E7ECD9;max-width:440px;margin:22px auto 44px;
+}
+.album-qr-card{
+  position:relative;width:min(340px,82vw);margin:0 auto 40px;
+  padding:30px 30px 24px;border-radius:28px;
+  background:linear-gradient(160deg,rgba(72,104,80,.55),rgba(45,68,52,.65));
+  border:1px solid rgba(201,164,86,.35);
+  box-shadow:0 24px 60px rgba(0,0,0,.34),0 0 46px rgba(169,199,154,.14),inset 0 1px 0 rgba(255,255,255,.08);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+}
+.album-qr-corner{position:absolute;width:30px;height:30px;pointer-events:none}
+.album-qr-corner svg{width:100%;height:100%}
+.album-qr-corner.tl{top:12px;left:12px}
+.album-qr-corner.tr{top:12px;right:12px;transform:scaleX(-1)}
+.album-qr-corner.bl{bottom:12px;left:12px;transform:scaleY(-1)}
+.album-qr-corner.br{bottom:12px;right:12px;transform:scale(-1,-1)}
+.album-qr-frame{
+  background:#F4EFE2;border-radius:16px;padding:14px;
+  box-shadow:0 8px 22px rgba(0,0,0,.22);
+}
+.album-qr-frame img{display:block;width:100%;height:auto;border-radius:6px}
+.album-qr-label{
+  font-family:var(--sans);font-size:12px;font-weight:500;
+  letter-spacing:.42em;text-transform:uppercase;
+  color:#CFE0BC;margin-top:20px;padding-left:.42em;
+}
+.album-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:11px;
+  width:min(420px,86vw);padding:18px 34px;border-radius:50px;
+  background:linear-gradient(135deg,#B7D3A4,#9DC08A);
+  border:1px solid rgba(255,255,255,.4);
+  font-family:var(--sans);font-size:12px;font-weight:700;
+  letter-spacing:.32em;text-transform:uppercase;
+  color:#22371F;text-decoration:none;cursor:pointer;
+  box-shadow:0 10px 30px rgba(157,192,138,.3),inset 0 1px 0 rgba(255,255,255,.4);
+  transition:transform .25s,box-shadow .25s,background .3s;
+}
+.album-btn svg{width:17px;height:17px;fill:none;stroke:#22371F;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.album-btn:hover{transform:translateY(-2px);background:linear-gradient(135deg,#C4DCB2,#A9C79A);box-shadow:0 14px 36px rgba(157,192,138,.42)}
+.album-note{
+  font-family:var(--serif);font-style:italic;font-size:13px;
+  color:rgba(231,236,217,.7);margin-top:16px;
+}
+
 /* ============ CARD GLOW ON SCROLL ============ */
 .glow-card{
   position:relative;
@@ -1125,8 +1190,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
           </g>
         </svg>
         <span class="verse-quote">&ldquo;</span>
-        <p class="verse-text">Por eso dejará el hombre a su padre y a su madre,<br>y se unirá a su mujer,<br>y los dos serán <em>una sola carne</em>.</p>
-        <div class="verse-sig">Efesios 5:31</div>
+        <p class="verse-text">El amor nunca se da por vencido,<br>jamás pierde la fe, siempre tiene esperanza<br>y se mantiene firme en <em>toda circunstancia</em>.</p>
+        <div class="verse-sig">1 Corintios 13:7</div>
       </div>
     </div>
   </section>
@@ -1170,7 +1235,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
         <div class="hair-word"><span>nuestra historia</span></div>
         <h2>Donde comienza <em>lo</em> nuestro</h2>
         <div class="story-body">
-          <p class="drop-cap" data-reveal="line">Nos encontramos en el momento justo, cuando el destino decidió que nuestros caminos se cruzaran para no separarse jamás. Desde entonces, cada día juntos ha sido una confirmación de que el amor verdadero existe.</p>
+          <p data-reveal="line">Nos encontramos en el momento justo, cuando el destino decidió que nuestros caminos se cruzaran para no separarse jamás. Desde entonces, cada día juntos ha sido una confirmación de que el amor verdadero existe.</p>
           <p data-reveal="line">Hoy los invitamos a celebrar con nosotros el inicio de un nuevo capítulo — rodeados de quienes más amamos, en una noche que guardaremos por siempre en el corazón.</p>
         </div>
         <div class="story-initials">JC &amp; A</div>
@@ -1443,7 +1508,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
           <p class="gbx-tap">Toca el regalo</p>
           <div class="gbx-reveal">
             <div class="gbx-logo sears"><img src="sears-logo.png" alt="Sears"></div>
-            <div class="gbx-desc">Mesa de regalos en línea</div>
+            <div class="gbx-desc">Evento No. 265577</div>
             <a class="gbx-cta" href="https://www.sears.com.mx/Mesa-de-Regalos/265577/nuestra-boda-ariadna-juan-carlos" target="_blank" rel="noopener">Ver mesa →</a>
           </div>
         </div>
@@ -1465,8 +1530,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
         <path d="M8.5 9.5h7"/>
       </svg>
       <div class="hair-word"><span>palabra de vida</span></div>
-      <p class="bible-verse-text">&ldquo;El amor nunca se da por vencido, jamás pierde la fe, siempre tiene esperanza y se mantiene firme en toda circunstancia.&rdquo;</p>
-      <div class="bible-verse-ref">1 Corintios 13:7</div>
+      <p class="bible-verse-text">&ldquo;Por eso dejará el hombre a su padre y a su madre, y se unirá a su mujer, y los dos serán una sola carne.&rdquo;</p>
+      <div class="bible-verse-ref">Efesios 5:31</div>
     </div>
   </section>
 
@@ -1550,7 +1615,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
           <div class="eyebrow" style="color:var(--gold-deep)">Confirma tu Asistencia</div>
           <h2 class="rsvp-title">Tu presencia <em>significa</em> todo</h2>
           <p class="rsvp-text">
-            Por favor confirma tu asistencia antes del <strong>27 de noviembre de 2026</strong>.
+            Por favor confirma tu asistencia antes del <strong>20 de septiembre de 2026</strong>.
             Nos encantaría saber que estarás con nosotros.
           </p>
 
@@ -1582,12 +1647,44 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 
           <div class="rsvp-deadline">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5z"/></svg>
-            Límite &middot; 27 de noviembre de 2026
+            Límite &middot; 20 de septiembre de 2026
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- DIVIDER -->
+  <div class="seam" style="--from:var(--bg);--to:#33513D" aria-hidden="true"></div>
+
+  <!-- ÁLBUM COMPARTIDO -->
+  <section class="album-section" id="album">
+    <div class="container">
+      <div class="eyebrow">Comparte el momento</div>
+      <h2 class="album-title">Álbum Compartido</h2>
+      <p class="album-desc">¡Queremos ver la boda a través de tus ojos!<br>Escanea el código o toca el botón para subir tus fotos y videos.</p>
+
+      <div class="album-qr-card glow-card">
+        <span class="album-qr-corner tl"><svg viewBox="0 0 30 30" fill="none" aria-hidden="true"><path d="M2 28 L2 2 L28 2" stroke="var(--gold)" stroke-width="1" opacity=".7"/><circle cx="2" cy="2" r="2" fill="var(--gold)" opacity=".6"/></svg></span>
+        <span class="album-qr-corner tr"><svg viewBox="0 0 30 30" fill="none" aria-hidden="true"><path d="M2 28 L2 2 L28 2" stroke="var(--gold)" stroke-width="1" opacity=".7"/><circle cx="2" cy="2" r="2" fill="var(--gold)" opacity=".6"/></svg></span>
+        <span class="album-qr-corner bl"><svg viewBox="0 0 30 30" fill="none" aria-hidden="true"><path d="M2 28 L2 2 L28 2" stroke="var(--gold)" stroke-width="1" opacity=".7"/><circle cx="2" cy="2" r="2" fill="var(--gold)" opacity=".6"/></svg></span>
+        <span class="album-qr-corner br"><svg viewBox="0 0 30 30" fill="none" aria-hidden="true"><path d="M2 28 L2 2 L28 2" stroke="var(--gold)" stroke-width="1" opacity=".7"/><circle cx="2" cy="2" r="2" fill="var(--gold)" opacity=".6"/></svg></span>
+        <div class="album-qr-frame">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=320x320&color=2E4A38&bgcolor=F4EFE2&margin=4&data=https%3A%2F%2Fphotos.app.goo.gl%2Fariadna-carlos" alt="Código QR del álbum compartido de Juan Carlos y Ariadna" width="320" height="320" loading="lazy">
+        </div>
+        <div class="album-qr-label">Álbum de fotos</div>
+      </div>
+
+      <a class="album-btn" href="https://photos.app.goo.gl/ariadna-carlos" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        Abrir álbum compartido
+      </a>
+      <p class="album-note">El enlace del álbum estará disponible muy pronto</p>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="seam" style="--from:#213829;--to:#4A1A24" aria-hidden="true"></div>
 
   <!-- FOOTER -->
   <footer>
@@ -1973,6 +2070,12 @@ gsap.fromTo('.rsvp-btn',{opacity:0,y:24,scale:.92},{opacity:1,y:0,scale:1,durati
 gsap.fromTo('.rsvp-deadline',{opacity:0,letterSpacing:'1em'},{opacity:1,letterSpacing:'.4em',duration:1,scrollTrigger:{trigger:'.rsvp-deadline',start:'top 92%'}});
 gsap.fromTo('.rsvp-corner',{opacity:0,scale:.5},{opacity:1,scale:1,duration:1,stagger:.08,ease:'back.out(2)',scrollTrigger:{trigger:'.rsvp-card',start:'top 82%'}});
 
+/* Álbum compartido */
+gsap.fromTo('.album-section .eyebrow, .album-title, .album-desc',{opacity:0,y:20},{opacity:1,y:0,duration:1.1,stagger:.12,ease:'power3.out',scrollTrigger:{trigger:'.album-section',start:'top 78%'}});
+gsap.fromTo('.album-qr-card',{opacity:0,y:36,scale:.94},{opacity:1,y:0,scale:1,duration:1.2,ease:'power4.out',scrollTrigger:{trigger:'.album-qr-card',start:'top 84%'}});
+gsap.fromTo('.album-qr-corner',{opacity:0,scale:.5},{opacity:1,scale:1,duration:1,stagger:.08,ease:'back.out(2)',scrollTrigger:{trigger:'.album-qr-card',start:'top 84%'}});
+gsap.fromTo('.album-btn, .album-note',{opacity:0,y:22},{opacity:1,y:0,duration:1.1,stagger:.12,ease:'power3.out',scrollTrigger:{trigger:'.album-btn',start:'top 90%'}});
+
 /* Card glow on scroll */
 document.querySelectorAll('.glow-card, .loc-card, .gbx, .hosp-slide').forEach(function(card){
   ScrollTrigger.create({
@@ -2025,7 +2128,7 @@ window.addEventListener('resize',()=>ScrollTrigger.refresh());
 (function(){
   var PANEL_API = 'https://panel-invitados.vercel.app/api/confirmar';
   var RSVP_URL  = 'https://boda-ariadna-y-carlos.vercel.app';
-  var DEADLINE  = new Date(2026, 10, 27, 23, 59, 59, 999);
+  var DEADLINE  = new Date(2026, 8, 20, 23, 59, 59, 999);
   var frozen    = Date.now() > DEADLINE.getTime();
 
   var params    = new URLSearchParams(window.location.search);
