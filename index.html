@@ -664,13 +664,6 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--gold)}
 .dc-swatch-sm{width:22px;height:22px;border-radius:50%;display:inline-block;box-shadow:0 3px 10px rgba(74,26,36,.18),inset 0 0 0 1px rgba(255,255,255,.2);position:relative}
 .dc-swatch-sm::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:1px dashed rgba(201,164,86,.35);pointer-events:none}
 
-/* ============ VERSÍCULO ============ */
-.bible-verse{text-align:center;padding:min(14vh,120px) 0;position:relative}
-.bible-verse .container{max-width:680px}
-.bible-verse-icon{color:var(--gold);margin-bottom:24px;opacity:.7}
-.bible-verse-text{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.5vw,26px);line-height:1.8;color:var(--ink);font-weight:300;margin-bottom:20px}
-.bible-verse-ref{font-family:var(--italiana);font-size:14px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold-deep);padding-left:.4em}
-
 /* ============ HOSPEDAJE ============ */
 .hosp-carousel{position:relative;max-width:380px;margin:30px auto 0}
 .hosp-viewport{overflow:hidden}
@@ -1518,25 +1511,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   </section>
 
   <!-- DIVIDER -->
-  <div class="seam" style="--from:var(--surface);--to:var(--paper)" aria-hidden="true"></div>
-
-  <!-- VERSÍCULO -->
-  <section class="section-paper bible-verse" id="bible-verse">
-    <div class="container">
-      <svg class="bible-verse-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
-        <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
-        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
-        <path d="M12 6v7"/>
-        <path d="M8.5 9.5h7"/>
-      </svg>
-      <div class="hair-word"><span>palabra de vida</span></div>
-      <p class="bible-verse-text">&ldquo;Por eso dejará el hombre a su padre y a su madre, y se unirá a su mujer, y los dos serán una sola carne.&rdquo;</p>
-      <div class="bible-verse-ref">Efesios 5:31</div>
-    </div>
-  </section>
-
-  <!-- DIVIDER -->
-  <div class="seam" style="--from:var(--paper);--to:var(--surface)" aria-hidden="true"></div>
+  <div class="seam" style="--from:var(--surface);--to:var(--surface)" aria-hidden="true"></div>
 
   <!-- HOSPEDAJE -->
   <section class="section-surface" id="lodging">
@@ -2020,9 +1995,6 @@ document.querySelectorAll('.gbx-present').forEach(function(btn){
     setTimeout(function(){ btn.style.display='none'; }, 1180);
   });
 });
-
-/* Versículo */
-gsap.fromTo('#bible-verse .bible-verse-icon, #bible-verse .hair-word, #bible-verse .bible-verse-text, #bible-verse .bible-verse-ref',{opacity:0,y:18},{opacity:1,y:0,duration:1,stagger:.12,scrollTrigger:{trigger:'#bible-verse',start:'top 78%'}});
 
 /* Hospedaje carousel */
 gsap.fromTo('#lodging .hosp-carousel',{opacity:0,y:34,scale:.96},{opacity:1,y:0,scale:1,duration:.7,ease:'power4.out',scrollTrigger:{trigger:'#lodging',start:'top 80%',once:true}});
